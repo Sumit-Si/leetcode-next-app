@@ -1,9 +1,13 @@
+import { onBoardUser } from "@/modules/auth/actions";
+import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  await onBoardUser();
+
   return (
-    <div>
-      Hello from new nextjs project
+    <div className="flex flex-col justify-center items-center">
+      <UserButton />
     </div>
   );
 }
